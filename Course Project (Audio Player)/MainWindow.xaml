@@ -11,10 +11,10 @@
         mc:Ignorable="d" Icon="Icons/Audio_Cd.ico"
         Title="Audio Player" 
         WindowStartupLocation="CenterScreen"
-        Height="450" Width="600"
+        Height="550" Width="800"
         MinHeight="450" MinWidth="600"
         Foreground="Black"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded" Closed="Window_Closed">
     <!--создаем ресурсы этого окна-->
     <Window.Resources>
         <models:PlayListContainer x:Key="playListContainer"/>
@@ -22,7 +22,6 @@
             <Setter Property="Margin" Value="3"/>
             <Setter Property="Padding" Value="3"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="Transparent"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Cursor" Value="Hand"/>
@@ -33,7 +32,6 @@
             <Setter Property="Margin" Value="3"/>
             <Setter Property="Padding" Value="3"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="Transparent"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Cursor" Value="Hand"/>
@@ -67,7 +65,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*" MinWidth="300"/>
-            <!--эта невидимая колонка нужна для удобного маштабирования основных колонок--> 
+            <!--эта невидимая колонка нужна для удобного маштабирования основных колонок-->
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="1.3*" MinWidth="300"/>
         </Grid.ColumnDefinitions>
@@ -163,9 +161,15 @@
 
         <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0">Volume</TextBlock>
         <Grid Grid.Column="3" Grid.Row="2" Grid.RowSpan="2">
-            <Image Grid.Column="3" Grid.Row="2" Source="Icons/Wave.png" Height="100" Stretch="Fill"/>
-            <Slider Name="sliderVolume" Value="0.5" Minimum="0" Maximum="1"  Width="270" Height="20" Margin="0,0,20,5" 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0,5*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0,5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="Icons/Volume.png" Height="90" Width="90" HorizontalAlignment="Left" Margin="5"/>
+            <Slider Grid.Column="1" Name="sliderVolume" Value="0.5" Minimum="0" Maximum="1"  Height="100" Orientation="Vertical"
                     LargeChange="0.1" HorizontalAlignment="Center" VerticalAlignment="Center" ValueChanged="sliderVolume_ValueChanged"/>
+            <Image Grid.Column="2" Source="Icons/Volume.png" Height="90" Width="90" HorizontalAlignment="Right" Margin="5"/>
         </Grid>
 
         <Grid Grid.Row="1">

@@ -6,28 +6,30 @@
         xmlns:local="clr-namespace:AudioPlayer.MoreInfo"
         mc:Ignorable="d" ResizeMode="NoResize"
         Icon="Icons/Audio_Cd.ico"
-        Title="Audio Track Info" Height="300" Width="550"
+        Title="Audio Track Info" Height="350" Width="550"
         WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="/Icons/BackgroundInfo.png" Stretch="Fill"/>
     </Window.Background>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Margin="5" Name="lbName" VerticalAlignment="Center" FontWeight="Bold"/>
-        <TextBlock Grid.Row="1" Margin="10" Name="tbFullName" VerticalAlignment="Center" FontWeight="Bold" TextTrimming="CharacterEllipsis"/>
-        <Label Grid.Row="2" Margin="5" Name="lbPerformers" VerticalAlignment="Center" FontWeight="Bold"/>
-        <Label Grid.Row="3" Margin="5" Name="lbAlbum" VerticalAlignment="Center" FontWeight="Bold"/>
-        <Label Grid.Row="4" Margin="5" Name="lbReleaseYear" VerticalAlignment="Center" FontWeight="Bold"/>
-        <Label Grid.Row="5" Margin="5" Name="lbGenres" VerticalAlignment="Center" FontWeight="Bold"/>
-        <Label Grid.Row="6" Margin="5" Name="lbCountry" VerticalAlignment="Center" FontWeight="Bold"/>
-    </Grid>
+            <TextBlock Grid.Row="0" Margin="5" Name="tbName" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Comic Sans MS" FontSize="20"/>
+            <TextBlock Grid.Row="1" Margin="5" Name="tbFullName" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Comic Sans MS" FontSize="20"/>
+            <TextBlock Grid.Row="2" Margin="5" Name="tbPerformers" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Comic Sans MS" FontSize="20"/>
+            <TextBlock Grid.Row="3" Margin="5" Name="tbAlbum" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Comic Sans MS" FontSize="20"/>
+            <TextBlock Grid.Row="4" Margin="5" Name="tbReleaseYear" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Comic Sans MS" FontSize="20"/>
+            <TextBlock Grid.Row="5" Margin="5" Name="tbGenres" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Comic Sans MS" FontSize="20"/>
+            <TextBlock Grid.Row="6" Margin="5" Name="tbCountry" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Comic Sans MS" FontSize="20"/>
+        </Grid>
+    </ScrollViewer>
 </Window>

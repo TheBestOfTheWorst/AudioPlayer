@@ -1,13 +1,14 @@
-﻿using System.ComponentModel;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace AudioPlayer.Models
 {
-    public class PlayListContainer : INotifyPropertyChanged
+    //наследуем класс от List<PlayList>
+    public class PlayListContainer: INotifyPropertyChanged
     {
         //коллекция, где хранятся аудиофайлы
-        private ObservableCollection<PlayList> _playListData = new ObservableCollection<PlayList>();
-        public ObservableCollection<PlayList> PlayListData
+        private List<PlayList> _playListData = new List<PlayList>();
+        public List<PlayList> PlayListData
         {
             get { return _playListData; }
             set
@@ -20,8 +21,31 @@ namespace AudioPlayer.Models
         public event PropertyChangedEventHandler PropertyChanged;
 
         public PlayListContainer() { }
-        public PlayListContainer(ObservableCollection<PlayList> playListData) => _playListData = playListData;
+        public PlayListContainer(List<PlayList> playListData) 
+        {
+            _playListData = new List<PlayList>(playListData);
+            OnPropertyChanged(nameof(PlayListData));
+        }
 
+        //создание своих методов, чтобы в них вызывалось событие PropertyChanged
+        //функционал аналогичен методам Add, Clear, RemoveAt
+        public void AddSong(PlayList playList)
+        {
+            PlayListData.Add(playList);
+            OnPropertyChanged(nameof(PlayListData));
+        }
+        public void ClearAllSongs()
+        {
+            PlayListData.Clear();
+            OnPropertyChanged(nameof(PlayListData));
+        }
+        public void RemoveSongAt(int index)
+        {
+            PlayListData.RemoveAt(index);
+            OnPropertyChanged(nameof(PlayListData));
+        }
+        
+        //функция-обработчик события
         protected void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

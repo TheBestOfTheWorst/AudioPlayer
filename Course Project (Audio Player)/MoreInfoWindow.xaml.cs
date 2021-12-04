@@ -11,13 +11,13 @@ namespace AudioPlayer.MoreInfo
             InitializeComponent();
 
             //заполняем все текстовые поля
-            lbName.Content = "Name: " + playList.Name;
+            tbName.Text = "Name: " + playList.Name;
             tbFullName.Text = "Full path: " + playList.FullName;
-            lbPerformers.Content = "Artists: " + playList.Performers;
-            lbAlbum.Content = "Album: " + playList.Album;
-            lbReleaseYear.Content = "Release year: " + playList.ReleaseYear;
-            lbGenres.Content = "Genres: " + playList.Genres;
-            lbCountry.Content = "Country: " + playList.Country;
+            tbPerformers.Text = "Artists: " + playList.Performers;
+            tbAlbum.Text = "Album: " + playList.Album;
+            tbReleaseYear.Text = "Release year: " + playList.ReleaseYear;
+            tbGenres.Text = "Genres: " + playList.Genres;
+            tbCountry.Text = "Country: " + playList.Country;
         }
     }
 }
