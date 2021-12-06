@@ -207,11 +207,11 @@ namespace AudioPlayer
             }
             catch (FileNotFoundException)
             {
-                MessageBox.Show($"Сохраненные данные не обнаружены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Saved data not found", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка сериализации данных \"{ex.Message}\" в файл", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error \"{ex.Message}\" serializing data", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         //метод вызывается после закрытия окна
